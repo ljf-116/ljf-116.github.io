@@ -1,435 +1,169 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luke Fischer | Aspiring CPA & Accounting Portfolio</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter & Merriweather -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        navy: {
-                            800: '#1e293b',
-                            900: '#0f172a',
-                            950: '#020617',
-                        },
-                        gold: {
-                            500: '#d97706',
-                            600: '#b45309',
-                        },
-                        rutgers: '#cc0033'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Merriweather', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .gradient-text {
-            background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luke Fischer | Accounting Student, Rutgers Business School</title>
+<meta name="description" content="Luke Fischer, accounting student at Rutgers Business School with a 3.8 GPA, pursuing his CPA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f6f5f1; --ink:#1b1f2a; --muted:#5b6170; --rule:#cfd2d9; --scarlet:#cc0033; --card:#ffffff;
+  --serif:"Newsreader", Georgia, "Times New Roman", serif;
+  --sans:"Instrument Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --paper:#14161c; --ink:#eceef3; --muted:#a2a8b6; --rule:#323744; --scarlet:#ff5a7a; --card:#1b1e26; }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 var(--sans)}
+a{color:inherit}
+a:focus-visible{outline:3px solid var(--scarlet);outline-offset:3px}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px}
+nav{border-bottom:1px solid var(--rule)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:18px;padding-bottom:18px}
+.brand{font-family:var(--serif);font-weight:600;font-size:1.15rem;text-decoration:none}
+nav ul{display:flex;gap:24px;list-style:none;margin:0;padding:0}
+nav ul a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.95rem}
+nav ul a:hover{color:var(--scarlet)}
+
+header.hero{padding:88px 0 72px}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(1.6rem,4vw,2.6rem);line-height:1.15;letter-spacing:-.015em;margin:0 0 40px;max-width:28ch}
+.facts{display:flex;flex-wrap:wrap;gap:0;margin:0;border-top:2px solid var(--ink);border-bottom:1px solid var(--rule)}
+.facts div{flex:1 1 180px;padding:16px 20px 16px 0}
+.facts dt{font-size:.85rem;color:var(--muted);margin:0 0 2px}
+.facts dd{margin:0;font-family:var(--serif);font-size:1.5rem;font-weight:600}
+.facts .gpa dd{color:var(--scarlet)}
+
+section{padding:56px 0;border-top:1px solid var(--rule)}
+h2{font-family:var(--serif);font-weight:600;font-size:1.9rem;margin:0 0 28px;letter-spacing:-.01em}
+
+/* Skills laid out like a ledger */
+.ledger{width:100%;border-collapse:collapse}
+.ledger th,.ledger td{text-align:left;vertical-align:top;padding:16px 0;border-bottom:1px solid var(--rule)}
+.ledger th{width:30%;font-family:var(--serif);font-weight:600;font-size:1.1rem;padding-right:20px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.chips li{background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:3px 11px;font-size:.93rem}
+
+.project{display:grid;grid-template-columns:1fr auto;gap:8px 24px;padding:24px 0;border-bottom:1px solid var(--rule)}
+.project:first-of-type{padding-top:0}
+.project h3{font-family:var(--serif);font-size:1.35rem;margin:0}
+.project p{grid-column:1;margin:0;color:var(--muted);max-width:60ch}
+.project .tags{grid-column:1;font-size:.88rem;color:var(--ink);font-weight:500}
+.project a.link{grid-column:2;grid-row:1;align-self:start;text-decoration:none;border:1.5px solid var(--scarlet);color:var(--scarlet);padding:6px 14px;border-radius:4px;font-weight:600;font-size:.9rem;white-space:nowrap}
+.project a.link:hover{background:var(--scarlet);color:var(--paper)}
+
+footer{padding:48px 0 64px;border-top:1px solid var(--rule)}
+footer p{margin:0 0 6px}
+footer .links{display:flex;flex-wrap:wrap;gap:20px;margin-top:12px}
+footer a{font-weight:600}
+footer a:hover{color:var(--scarlet)}
+
+@media (max-width:600px){
+  nav ul{gap:16px}
+  header.hero{padding:56px 0 48px}
+  .ledger th,.ledger td{display:block;width:100%}
+  .ledger th{padding-bottom:6px;border-bottom:0}
+  .ledger td{padding-top:0}
+  .project{grid-template-columns:1fr}
+  .project a.link{grid-column:1;grid-row:auto;justify-self:start;margin-top:6px}
+}
+</style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-amber-100 selection:text-amber-900">
+<body>
 
-    <!-- Navigation Bar -->
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex items-center gap-2">
-                    <div class="w-10 h-10 rounded-lg bg-navy-900 text-amber-500 font-serif font-bold text-xl flex items-center justify-center shadow-md">
-                        LF
-                    </div>
-                    <span class="font-bold text-xl tracking-tight text-navy-900">Luke Fischer</span>
-                </div>
-                
-                <!-- Desktop Navigation Links -->
-                <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
-                    <a href="#about" class="text-slate-600 hover:text-navy-900 transition-colors">About</a>
-                    <a href="#skills" class="text-slate-600 hover:text-navy-900 transition-colors">Skills</a>
-                    <a href="#projects" class="text-slate-600 hover:text-navy-900 transition-colors">Projects</a>
-                    <a href="#deployment" class="text-slate-600 hover:text-navy-900 transition-colors">Setup Guide</a>
-                    <a href="#contact" class="inline-flex items-center px-4 py-2 border border-navy-900 text-navy-900 rounded-md hover:bg-navy-900 hover:text-white transition-all text-xs font-semibold uppercase tracking-wider">
-                        Contact
-                    </a>
-                </div>
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Luke Fischer</a>
+    <ul>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-button" class="text-slate-600 hover:text-slate-900 focus:outline-none p-2">
-                        <i class="fa-solid fa-bars text-xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
+<main id="top">
+  <header class="hero">
+    <div class="wrap">
+      <!-- PERSONAL STATEMENT: one sentence -->
+      <h1>I'm an accounting student at Rutgers Business School working toward my CPA, and I turn messy financial data into clear, accurate answers.</h1>
+      <dl class="facts">
+        <div class="gpa"><dt>GPA</dt><dd>3.8</dd></div>
+        <div><dt>Major</dt><dd>Accounting</dd></div>
+        <div><dt>Goal</dt><dd>CPA</dd></div>
+        <div><dt>School</dt><dd>Rutgers Business School</dd></div>
+      </dl>
+    </div>
+  </header>
 
-        <!-- Mobile Dropdown Menu -->
-        <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 bg-white px-4 pt-2 pb-4 space-y-2 text-sm font-medium">
-            <a href="#about" class="block py-2 text-slate-600 hover:text-navy-900">About</a>
-            <a href="#skills" class="block py-2 text-slate-600 hover:text-navy-900">Skills</a>
-            <a href="#projects" class="block py-2 text-slate-600 hover:text-navy-900">Projects</a>
-            <a href="#deployment" class="block py-2 text-slate-600 hover:text-navy-900">Deployment Guide</a>
-            <a href="#contact" class="block py-2 text-navy-900 font-semibold">Contact Me</a>
-        </div>
-    </nav>
+  <section id="skills">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <table class="ledger">
+        <tbody>
+          <tr>
+            <th scope="row">Accounting</th>
+            <td><ul class="chips">
+              <li>Financial accounting</li><li>Managerial accounting</li><li>Reconciliations</li><li>CPA exam preparation</li><li>Financial statement analysis</li><li>Budgeting and variance analysis</li>
+            </ul></td>
+          </tr>
+          <tr>
+            <th scope="row">Tools</th>
+            <td><ul class="chips">
+              <li>Microsoft Excel</li><li>PivotTables</li><li>VLOOKUP / XLOOKUP</li><li>GitHub</li><li>HTML</li>
+            </ul></td>
+          </tr>
+          <tr>
+            <th scope="row">Professional</th>
+            <td><ul class="chips">
+              <li>Attention to detail</li><li>Time management</li><li>Clear written communication</li><li>Teamwork</li>
+            </ul></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
-    <!-- Hero / Personal Statement Section -->
-    <section id="about" class="relative py-20 lg:py-28 bg-gradient-to-b from-white to-slate-100/60 overflow-hidden">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-3xl mx-auto space-y-6">
-                <!-- Academic Highlights Badge -->
-                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 shadow-sm">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                    Rutgers Business School • 3.8 GPA • CPA Candidate Track
-                </div>
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
 
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-navy-900 tracking-tight leading-tight">
-                    Accounting & Financial Excellence
-                </h1>
+      <article class="project">
+        <h3>Financial Statement Analysis</h3>
+        <p>Compared income statements and balance sheets across multiple years, calculating liquidity, profitability, and leverage ratios and summarizing what they show about the company.</p>
+        <span class="tags">Excel, ratio analysis</span>
+      </article>
 
-                <!-- EXACT ONE-SENTENCE PERSONAL STATEMENT (Rubric Requirement) -->
-                <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm text-left sm:text-center relative">
-                    <span class="text-xs font-bold uppercase tracking-wider text-amber-600 block mb-2">Personal Statement</span>
-                    <p class="text-lg sm:text-xl text-slate-700 font-serif leading-relaxed italic">
-                        "An ambitious Rutgers Business School Accounting student with a 3.8 GPA and aspiring CPA, dedicated to delivering precise financial analysis, internal audit accuracy, and strategic business solutions."
-                    </p>
-                </div>
+      <article class="project">
+        <h3>Budget vs. Actual Variance Report</h3>
+        <p>Built a budget model and a variance report that flags favorable and unfavorable differences by category, with notes on likely causes.</p>
+        <span class="tags">Excel, PivotTables, managerial accounting</span>
+      </article>
 
-                <!-- Action CTA Buttons -->
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                    <a href="#projects" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-lg bg-navy-900 text-white font-semibold shadow-md hover:bg-slate-800 transition-all gap-2">
-                        <i class="fa-solid fa-folder-open text-amber-400"></i> View Projects
-                    </a>
-                    <a href="#contact" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white border border-slate-300 text-slate-700 font-semibold hover:bg-slate-50 transition-all gap-2">
-                        <i class="fa-solid fa-envelope text-slate-500"></i> Contact Me
-                    </a>
-                </div>
+      <article class="project">
+        <h3>Bank Reconciliation Workbook</h3>
+        <p>Created a reusable template that matches ledger entries to bank statements and lists outstanding checks and deposits in transit.</p>
+        <span class="tags">Excel, lookups, internal controls</span>
+      </article>
+    </div>
+  </section>
+</main>
 
-                <!-- Academic Credentials Quick Stats -->
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 pt-8 border-t border-slate-200">
-                    <div class="p-4 rounded-xl bg-white/60 backdrop-blur-sm border border-slate-200/80">
-                        <div class="text-2xl font-bold text-navy-900">3.8 / 4.0</div>
-                        <div class="text-xs text-slate-500 font-medium">Cumulative GPA</div>
-                    </div>
-                    <div class="p-4 rounded-xl bg-white/60 backdrop-blur-sm border border-slate-200/80">
-                        <div class="text-2xl font-bold text-navy-900">RBS</div>
-                        <div class="text-xs text-slate-500 font-medium">Rutgers Business School</div>
-                    </div>
-                    <div class="col-span-2 md:col-span-1 p-4 rounded-xl bg-white/60 backdrop-blur-sm border border-slate-200/80">
-                        <div class="text-2xl font-bold text-navy-900">150 Credit</div>
-                        <div class="text-xs text-slate-500 font-medium">CPA Eligibility Track</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<footer id="contact">
+  <div class="wrap">
+    <p><strong>Let's connect.</strong> I'm pursuing my CPA license and open to internships and entry-level accounting roles.</p>
+    <div class="links">
+      <a href="mailto:ljf116@scarletmail.rutgers.edu">ljf116@scarletmail.rutgers.edu</a>
+      <a href="https://www.linkedin.com/in/luke-fischer-920349382">LinkedIn</a>
+      <a href="https://github.com/YOUR-USERNAME">GitHub</a>
+    </div>
+  </div>
+</footer>
 
-    <!-- Skills Showcase Section -->
-    <section id="skills" class="py-16 bg-white border-y border-slate-200">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <h2 class="text-3xl font-bold text-navy-900 tracking-tight">Core Competencies & Skills</h2>
-                <p class="mt-2 text-slate-600 text-sm">A highlight of technical software, analytical tools, and professional financial expertise.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Technical & Analytical Skills -->
-                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="p-3 bg-amber-50 text-amber-600 rounded-lg">
-                            <i class="fa-solid fa-laptop-code text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-navy-900">Technical & Systems Skills</h3>
-                            <p class="text-xs text-slate-500">Software, modeling & data architecture</p>
-                        </div>
-                    </div>
-                    
-                    <div class="space-y-4">
-                        <div class="bg-white p-3.5 rounded-xl border border-slate-200 flex items-start gap-3">
-                            <i class="fa-solid fa-file-excel text-emerald-600 text-lg mt-0.5"></i>
-                            <div>
-                                <h4 class="text-sm font-semibold text-slate-900">Financial Modeling & Advanced Excel</h4>
-                                <p class="text-xs text-slate-600 mt-0.5">VLOOKUP, Pivot Tables, DCF modeling, Index/Match, and financial forecasting.</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-white p-3.5 rounded-xl border border-slate-200 flex items-start gap-3">
-                            <i class="fa-solid fa-database text-blue-600 text-lg mt-0.5"></i>
-                            <div>
-                                <h4 class="text-sm font-semibold text-slate-900">ID3 Data & Metadata Standardization</h4>
-                                <p class="text-xs text-slate-600 mt-0.5">Structuring metadata frameworks, file tagging architecture, and database indexing.</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-white p-3.5 rounded-xl border border-slate-200 flex items-start gap-3">
-                            <i class="fa-solid fa-chart-line text-amber-600 text-lg mt-0.5"></i>
-                            <div>
-                                <h4 class="text-sm font-semibold text-slate-900">Data Analytics & QuickBooks</h4>
-                                <p class="text-xs text-slate-600 mt-0.5">General ledger management, audit trial tracking, and ledger reconciliation software.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Professional & Auditing Skills -->
-                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="p-3 bg-blue-50 text-blue-600 rounded-lg">
-                            <i class="fa-solid fa-scale-balanced text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-navy-900">Accounting & Audit Expertise</h3>
-                            <p class="text-xs text-slate-500">Financial principles & regulatory frameworks</p>
-                        </div>
-                    </div>
-
-                    <div class="space-y-4">
-                        <div class="bg-white p-3.5 rounded-xl border border-slate-200 flex items-start gap-3">
-                            <i class="fa-solid fa-shield-halved text-indigo-600 text-lg mt-0.5"></i>
-                            <div>
-                                <h4 class="text-sm font-semibold text-slate-900">Internal Audit & Risk Assessment</h4>
-                                <p class="text-xs text-slate-600 mt-0.5">Control testing, compliance auditing, operational risk mitigation, and reporting.</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-white p-3.5 rounded-xl border border-slate-200 flex items-start gap-3">
-                            <i class="fa-solid fa-file-invoice-dollar text-slate-700 text-lg mt-0.5"></i>
-                            <div>
-                                <h4 class="text-sm font-semibold text-slate-900">Financial Reporting & GAAP Compliance</h4>
-                                <p class="text-xs text-slate-600 mt-0.5">Income statement preparation, balance sheet auditing, and cash flow analysis.</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-white p-3.5 rounded-xl border border-slate-200 flex items-start gap-3">
-                            <i class="fa-solid fa-bullseye text-red-600 text-lg mt-0.5"></i>
-                            <div>
-                                <h4 class="text-sm font-semibold text-slate-900">Managerial & Strategic Analysis</h4>
-                                <p class="text-xs text-slate-600 mt-0.5">Budget allocation, cost variance analysis, and performance simulation analysis.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-16 bg-slate-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
-                <div>
-                    <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Portfolio</span>
-                    <h2 class="text-3xl font-bold text-navy-900 tracking-tight">Featured Projects & Simulations</h2>
-                </div>
-                <p class="text-slate-600 text-sm mt-2 md:mt-0 max-w-md">Practical accounting projects, audit simulations, and financial data analysis achievements.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Project 1: Goldman Sachs Internal Audit Simulation -->
-                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col h-full group">
-                    <div class="p-6 flex-1 flex flex-col">
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="px-2.5 py-1 bg-amber-50 text-amber-700 font-medium text-xs rounded-full border border-amber-200">Audit & Compliance</span>
-                            <span class="text-xs font-mono text-slate-400">Forage Platform</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-navy-900 group-hover:text-amber-600 transition-colors">
-                            Goldman Sachs Internal Audit Simulation
-                        </h3>
-                        <p class="mt-3 text-slate-600 text-sm leading-relaxed flex-1">
-                            Completed an interactive virtual job simulation focusing on internal controls, risk identification, and audit assessment. Evaluated governance frameworks, prioritized operational risks, and formulated executive audit recommendations.
-                        </p>
-                        <div class="mt-6 pt-4 border-t border-slate-100 space-y-3">
-                            <div class="flex flex-wrap gap-1.5">
-                                <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">Control Testing</span>
-                                <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">Risk Mitigation</span>
-                                <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">Audit Reporting</span>
-                            </div>
-                            <div class="flex items-center justify-between pt-1">
-                                <a href="https://www.theforage.com/simulations/goldman-sachs/internal-audit-pvef" target="_blank" rel="noopener" class="inline-flex items-center text-xs font-semibold text-navy-900 hover:text-amber-600 transition-colors gap-1">
-                                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i> Simulation Details
-                                </a>
-                                <a href="https://github.com/lukefischer" target="_blank" rel="noopener" class="text-xs font-semibold text-slate-500 hover:text-navy-900 flex items-center gap-1">
-                                    <i class="fa-brands fa-github"></i> Repository
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2: RBS Marketplace Live Business Simulation -->
-                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col h-full group">
-                    <div class="p-6 flex-1 flex flex-col">
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="px-2.5 py-1 bg-blue-50 text-blue-700 font-medium text-xs rounded-full border border-blue-200">Financial Management</span>
-                            <span class="text-xs font-mono text-slate-400">Rutgers Coursework</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-navy-900 group-hover:text-blue-600 transition-colors">
-                            Rutgers Business School Marketplace Simulation
-                        </h3>
-                        <p class="mt-3 text-slate-600 text-sm leading-relaxed flex-1">
-                            Managed financial planning, capital allocation, and pro-forma statements for a multi-quarter business simulation at Rutgers. Analyzed quarterly income statements, balance sheet variances, and cost-of-goods metrics.
-                        </p>
-                        <div class="mt-6 pt-4 border-t border-slate-100 space-y-3">
-                            <div class="flex flex-wrap gap-1.5">
-                                <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">Variance Analysis</span>
-                                <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">Capital Allocation</span>
-                                <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">Managerial Acc.</span>
-                            </div>
-                            <div class="flex items-center justify-between pt-1">
-                                <a href="https://www.business.rutgers.edu" target="_blank" rel="noopener" class="inline-flex items-center text-xs font-semibold text-navy-900 hover:text-blue-600 transition-colors gap-1">
-                                    <i class="fa-solid fa-graduation-cap text-xs"></i> RBS Program
-                                </a>
-                                <a href="https://github.com/lukefischer" target="_blank" rel="noopener" class="text-xs font-semibold text-slate-500 hover:text-navy-900 flex items-center gap-1">
-                                    <i class="fa-brands fa-github"></i> Reports Repo
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3: Accounting & Data Management Systems -->
-                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col h-full group">
-                    <div class="p-6 flex-1 flex flex-col">
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="px-2.5 py-1 bg-emerald-50 text-emerald-700 font-medium text-xs rounded-full border border-emerald-200">Accounting Systems</span>
-                            <span class="text-xs font-mono text-slate-400">Technical Analysis</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-navy-900 group-hover:text-emerald-600 transition-colors">
-                            Accounting Data Systems & Metadata Control
-                        </h3>
-                        <p class="mt-3 text-slate-600 text-sm leading-relaxed flex-1">
-                            Analyzed data structuring principles and metadata standards for financial databases and digital asset management. Integrated metadata frameworks (including ID3 tag architecture) for automated file indexing and audit trail integrity.
-                        </p>
-                        <div class="mt-6 pt-4 border-t border-slate-100 space-y-3">
-                            <div class="flex flex-wrap gap-1.5">
-                                <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">ID3 Metadata</span>
-                                <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">Audit Trails</span>
-                                <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">Database Indexing</span>
-                            </div>
-                            <div class="flex items-center justify-between pt-1">
-                                <a href="https://github.com/lukefischer" target="_blank" rel="noopener" class="inline-flex items-center text-xs font-semibold text-navy-900 hover:text-emerald-600 transition-colors gap-1">
-                                    <i class="fa-brands fa-github text-xs"></i> GitHub Repository
-                                </a>
-                                <a href="#contact" class="text-xs font-semibold text-slate-500 hover:text-navy-900 flex items-center gap-1">
-                                    <i class="fa-solid fa-file-text"></i> Details
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- GitHub Pages Setup & Submission Checklist Section -->
-    <section id="deployment" class="py-12 bg-slate-900 text-white">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-slate-800 to-navy-900 border border-slate-700 shadow-xl">
-                <div class="flex items-center gap-3 mb-4">
-                    <i class="fa-brands fa-github text-3xl text-amber-400"></i>
-                    <div>
-                        <h3 class="text-xl font-bold">GitHub Pages Quick Deployment Guide</h3>
-                        <p class="text-slate-400 text-xs">Steps for submitting this personal portfolio to complete the assignment assignment</p>
-                    </div>
-                </div>
-
-                <div class="grid sm:grid-cols-4 gap-4 mt-6 text-sm">
-                    <div class="p-3 rounded-lg bg-slate-800/80 border border-slate-700">
-                        <span class="font-bold text-amber-400 block mb-1">Step 1</span>
-                        <p class="text-xs text-slate-300">Save this complete code in a file named strictly <code class="text-amber-300">index.html</code>.</p>
-                    </div>
-                    <div class="p-3 rounded-lg bg-slate-800/80 border border-slate-700">
-                        <span class="font-bold text-amber-400 block mb-1">Step 2</span>
-                        <p class="text-xs text-slate-300">Create a Public repository on GitHub (e.g. <code class="text-amber-300">portfolio</code>) and commit <code class="text-amber-300">index.html</code>.</p>
-                    </div>
-                    <div class="p-3 rounded-lg bg-slate-800/80 border border-slate-700">
-                        <span class="font-bold text-amber-400 block mb-1">Step 3</span>
-                        <p class="text-xs text-slate-300">Go to <strong>Settings &gt; Pages</strong>. Set Source to <strong>Deploy from a branch</strong> (<code class="text-amber-300">main</code> or <code class="text-amber-300">master</code>) and click <strong>Save</strong>.</p>
-                    </div>
-                    <div class="p-3 rounded-lg bg-slate-800/80 border border-slate-700">
-                        <span class="font-bold text-amber-400 block mb-1">Step 4</span>
-                        <p class="text-xs text-slate-300">Copy your public repository link & live URL and submit both for full marks!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-bold text-navy-900 tracking-tight">Connect with Luke</h2>
-            <p class="mt-2 text-slate-600 text-sm">Interested in discussing accounting roles, internships, or audit opportunities?</p>
-
-            <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6">
-                <a href="mailto:luke.fischer@rutgers.edu" class="flex items-center gap-3 px-6 py-4 rounded-xl border border-slate-200 hover:border-navy-900 bg-slate-50 hover:bg-white transition-all shadow-sm group w-full sm:w-auto">
-                    <i class="fa-solid fa-envelope text-xl text-amber-600"></i>
-                    <div class="text-left">
-                        <div class="text-xs text-slate-500 font-medium">Email Me</div>
-                        <div class="text-sm font-semibold text-slate-900 group-hover:text-navy-900">luke.fischer@rutgers.edu</div>
-                    </div>
-                </a>
-
-                <a href="https://linkedin.com/in/lukefischer" target="_blank" rel="noopener" class="flex items-center gap-3 px-6 py-4 rounded-xl border border-slate-200 hover:border-blue-600 bg-slate-50 hover:bg-white transition-all shadow-sm group w-full sm:w-auto">
-                    <i class="fa-brands fa-linkedin text-xl text-blue-600"></i>
-                    <div class="text-left">
-                        <div class="text-xs text-slate-500 font-medium">LinkedIn</div>
-                        <div class="text-sm font-semibold text-slate-900 group-hover:text-blue-600">linkedin.com/in/lukefischer</div>
-                    </div>
-                </a>
-
-                <a href="https://github.com/lukefischer" target="_blank" rel="noopener" class="flex items-center gap-3 px-6 py-4 rounded-xl border border-slate-200 hover:border-slate-900 bg-slate-50 hover:bg-white transition-all shadow-sm group w-full sm:w-auto">
-                    <i class="fa-brands fa-github text-xl text-slate-900"></i>
-                    <div class="text-left">
-                        <div class="text-xs text-slate-500 font-medium">GitHub</div>
-                        <div class="text-sm font-semibold text-slate-900">github.com/lukefischer</div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-8 bg-slate-100 border-t border-slate-200 text-center text-xs text-slate-500">
-        <div class="max-w-6xl mx-auto px-4">
-            <p>&copy; <span id="year"></span> Luke Fischer • Rutgers Business School Accounting Major • 3.8 GPA</p>
-        </div>
-    </footer>
-
-    <script>
-        // Set dynamic copyright year
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Mobile menu toggle logic
-        const mobileBtn = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close menu on link click
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-    </script>
 </body>
 </html>
